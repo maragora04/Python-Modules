@@ -1,15 +1,11 @@
-MIN_TEMP = 0
-MAX_TEMP = 40
-
-
 def input_temperature(temp_str: str) -> int:
     temperature = int(temp_str)
-    if temperature > MAX_TEMP:
+    if temperature > 40:
         raise ValueError(
-            f"{temperature}°C is too hot for plants (max {MAX_TEMP}°C)")
-    if temperature < MIN_TEMP:
+            f"{temperature}°C is too hot for plants (max {40}°C)")
+    if temperature < 0:
         raise ValueError(
-            f"{temperature}°C is too cold for plants (min {MIN_TEMP}°C)")
+            f"{temperature}°C is too cold for plants (min {0}°C)")
     return temperature
 
 
