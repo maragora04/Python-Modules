@@ -11,9 +11,10 @@ ACHIEVEMENTS = [
     "Pixel Perfectionist", ]
 
 
-def player_achievements() -> str:
+def player_achievements() -> set[str]:
     nb_achievements = random.randint(10, 15)
-    return set(random.sample(ACHIEVEMENTS, nb_achievements))
+    player_achvs = set(random.sample(ACHIEVEMENTS, nb_achievements))
+    return player_achvs
 
 
 def print_players(players) -> None:
@@ -47,10 +48,10 @@ def gen_player_achievements() -> None:
     print_players(players)
 
     all_sets = list(players.values())
-    all_distinct = set.union(*all_sets)
+    all_distinct = all_sets[0].union(*all_sets[1:])
     print(f"All distinct achievements: {all_distinct}")
 
-    common = set.intersection(*all_sets)
+    common = all_sets[0].intersection(*all_sets[1:])
     print(f"Common achievements: {common}")
 
     print_only(players)

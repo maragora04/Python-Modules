@@ -33,7 +33,7 @@ class Plant:
         self._height: float = 0.0
         self._age: int = 0
         self._growth_rate: float = growth_rate
-        self._stats: "Plant.Stats" = self.Stats()
+        self._stats: Plant.Stats = self.Stats()
         self.set_height(height)
         self.set_age(age)
 
@@ -129,9 +129,12 @@ class Tree(Plant):
         age: int = 0,
         growth_rate: float = 1.0,
         trunk_diameter: float = 0.0,
+        shade: int = 0,
     ) -> None:
         super().__init__(name, height, age, growth_rate)
+        self._stats: Tree.Stats = self.Stats()
         self._trunk_diameter: float = trunk_diameter
+        self._stats._shade_calls = shade
 
     def show(self) -> None:
         super().show()
@@ -207,8 +210,7 @@ if __name__ == "__main__":
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_a_year(30)}")
     print(
         f"Is 400 days more than a year? -> "
-        f"{Plant.is_older_than_a_year(400)}"
-    )
+        f"{Plant.is_older_than_a_year(400)}\n")
 
     print("=== Flower")
     rose = Flower("Rose", 15.0, 10, growth_rate=8.0, color="red")
@@ -219,19 +221,20 @@ if __name__ == "__main__":
     rose.bloom()
     rose.show()
     display_stats(rose)
+    print("\n")
 
-    print("=== Tree")
+    print("=== Tree ===")
     oak = Tree("Oak", 200.0, 365, trunk_diameter=5.0)
     oak.show()
     display_stats(oak)
     print("[asking the oak to produce shade]")
     oak.produce_shade()
     display_stats(oak)
+    print("\n")
 
     print("=== Seed")
     sunflower = Seed(
-        "Sunflower", 80.0, 45, growth_rate=30.0, color="yellow"
-    )
+        "Sunflower", 80.0, 45, growth_rate=30.0, color="yellow")
     sunflower.show()
     print("[make sunflower grow, age and bloom]")
     sunflower.grow()
@@ -239,8 +242,10 @@ if __name__ == "__main__":
     sunflower.bloom()
     sunflower.show()
     display_stats(sunflower)
+    print("\n")
 
     print("=== Anonymous")
     mystery = Plant.create_anonymous()
     mystery.show()
     display_stats(mystery)
+    print("\n")

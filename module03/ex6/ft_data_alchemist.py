@@ -10,8 +10,7 @@ def game_data_alchemist() -> None:
     capitalized = [name.capitalize() for name in players]
     print(f"New list with all names capitalized: {capitalized}")
 
-    originally_capitalized = [
-        name for name in players if name[0].isupper()]
+    originally_capitalized = [name for name in players if name[0].isupper()]
     print(f"New list of capitalized names only: {originally_capitalized}")
 
     scores = {name: random.randint(1, 1000) for name in capitalized}
