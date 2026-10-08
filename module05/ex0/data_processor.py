@@ -122,7 +122,7 @@ if __name__ == "__main__":
         print(f"Trying to validate input '{input}': {num.validate(input)}")
     print("Test invalid ingestion of string 'foo' without prior validation:")
     try:
-        num.ingest("foo")
+        num.ingest("foo") #type: ignore
     except ValueError as error:
         print(f"Got exception: {error}")
     numbers: List[Union[int, float]] = [1, 2, 3, 4, 5]

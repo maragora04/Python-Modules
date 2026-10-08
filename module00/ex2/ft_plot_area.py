@@ -4,4 +4,6 @@ def ft_plot_area():
     area = length * width
     print("Plot area: ", area)
 
-# ft_plot_area()
+
+if __name__ == "__main__":
+    ft_plot_area()

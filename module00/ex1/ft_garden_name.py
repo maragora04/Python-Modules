@@ -3,4 +3,6 @@ def ft_garden_name():
     print("Garden:", garden_name)
     print("Status: Growing well!")
 
-# ft_garden_name()
+
+if __name__ == "__main__":
+    ft_garden_name()

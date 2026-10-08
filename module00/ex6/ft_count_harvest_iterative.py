@@ -4,4 +4,6 @@ def ft_count_harvest_iterative():
         print("Day", day)
     print("Harvest time!")
 
-# ft_count_harvest_iterative()
+
+if __name__ == "__main__":
+    ft_count_harvest_iterative()
