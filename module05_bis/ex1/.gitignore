@@ -1,0 +1,10 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python / environments
+lab_env/
+.venv/
+__pycache__/
+.mypy_cache/
