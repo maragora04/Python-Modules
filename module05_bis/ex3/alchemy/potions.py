@@ -1,7 +1,5 @@
-from .elements import create_air
-from .elements import create_earth
-from elements import create_fire
-from elements import create_water
+from elements import create_fire, create_water
+from .elements import create_air, create_earth
 
 
 def healing_potion() -> str:
