@@ -3,14 +3,27 @@ import math
 
 def get_coords(prompt: str) -> tuple:
     while True:
-        coords = input(prompt)
-        parts = coords.split(",")
         try:
-            x, y, z = [float(i) for i in parts]
-            return x, y, z
-        except ValueError:
-            print("Invalid syntax")
+            coords = input(prompt)
+        except (KeyboardInterrupt, EOFError):
+            print()
+            continue
 
+        parts = coords.split(",")
+        if len(parts) != 3:
+            print(f"Error: expected 3 values, got {len(parts)}")
+            continue
+
+        values = []
+        for part in parts:
+            try:
+                values.append(float(part))
+            except ValueError:
+                print(f"Error on parameter '{part.strip()}': "
+                      f"could not convert string to float")
+                break
+        else:
+            return tuple(values)
 
 def distance_finder(one: tuple, two: tuple) -> float:
     dx = two[0] - one[0]
@@ -24,7 +37,7 @@ def get_player_pos() -> None:
 
     print("Get a first set of coordinates")
 
-    prompt = "Enter new coordinates as floats in format 'x,y,z': "
+    prompt = ("Enter new coordinates as floats in format 'x,y,z': ")
     coords1 = get_coords(prompt)
     distance1 = math.sqrt(coords1[0]**2 + coords1[1]**2 + coords1[2]**2)
     print(f"Got a first tuple: {coords1}")
