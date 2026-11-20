@@ -118,7 +118,7 @@ class Vegetable(Plant):
         self._nutritional_value += 0.5
 
 
-if __name__ == "__main__":
+def main() -> None:
     print("=== Garden Plant Types ===")
 
     print("=== Flower")
@@ -143,3 +143,7 @@ if __name__ == "__main__":
         tomato.grow()
         tomato.age_up()
     tomato.show()
+
+
+if __name__ == "__main__":
+    main()

@@ -21,7 +21,7 @@ class Plant:
         self.age += 1
 
 
-if __name__ == "__main__":
+def main() -> None:
     plants = [
         Plant("Rose", 25.0, 30, growth_rate=0.8),
         Plant("Oak", 200.0, 365, growth_rate=0.3),
@@ -32,5 +32,9 @@ if __name__ == "__main__":
 
     print("=== Plant Factory Output ===")
     for plant in plants:
-        print("Created: ", end="")
+        print("Created:", end=" ")
         plant.show()
+
+
+if __name__ == "__main__":
+    main()

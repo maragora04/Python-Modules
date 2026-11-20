@@ -17,7 +17,7 @@ class Plant:
         self.age += 1
 
 
-if __name__ == "__main__":
+def main() -> None:
     rose = Plant("Rose", 25.0, 30, growth_rate=0.8)
 
     print("=== Garden Plant Growth ===")
@@ -33,3 +33,7 @@ if __name__ == "__main__":
 
     week_increase = round(rose.height - initial_height, 1)
     print(f"Growth this week: {week_increase}cm")
+
+
+if __name__ == "__main__":
+    main()
