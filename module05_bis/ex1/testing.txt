@@ -1,0 +1,28 @@
+# !! for testing purposes !!
+# ==PROD==
+# MATRIX_MODE=production \
+# DATABASE_URL=postgres://user:pass@db.example.com/prod \
+# API_KEY=prodkey456 \
+# LOG_LEVEL=WARNING \
+# ZION_ENDPOINT=https://zion.example.com \
+# python3 ex1/oracle.py
+
+# ==INVALID==
+# MATRIX_MODE=banana python3 ex1/oracle.py
+
+# ==PARTIAL PROD==
+# mv ex1/.env ex1/.env.bak
+# MATRIX_MODE=production API_KEY=secret123 python3 ex1/oracle.py
+# mv ex1/.env.bak ex1/.env
+
+# ==PROD MISSING VALS==
+# mv ex1/.env ex1/.env.bak
+# MATRIX_MODE=production python3 ex1/oracle.py
+# echo $?
+# mv ex1/.env.bak ex1/.env
+
+mv ex1/.env ex1/.env.bak
+MATRIX_MODE=production python3 ex1/oracle.py
+echo $?                                   
+MATRIX_MODE=banana python3 ex1/oracle.py
+mv ex1/.env.bak ex1/.env
